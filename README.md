@@ -1,6 +1,6 @@
 # Projeto-TheRisingSun
 
-Api do projeto TheRisingSun - E-commerce Papelaria
+API do projeto TheRisingSun - E-commerce Papelaria
 
 ## Tarefas
 
