@@ -1,14 +1,13 @@
+package br.com.fiap.therisingsun;
 
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+@SpringBootApplication
 public class TheRisingSunApplication {
 
-    public static void main(String[] args) {
-        SpringApplication.run(TheRisingSunApplication.class,args);
-    }
-    
-    @RequestMapping
-    @ResponseBody
-    public String home(){
-        return "The Rising Sun Papelaria";
-    }
+	public static void main(String[] args) {
+		SpringApplication.run(TheRisingSunApplication.class, args);
+	}
+
 }

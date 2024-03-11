@@ -1,4 +1,4 @@
-package br.com.fiap.therisingsun.TheRisingSun;
+package br.com.fiap.therisingsun;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
