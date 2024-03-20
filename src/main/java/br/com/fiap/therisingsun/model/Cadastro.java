@@ -9,6 +9,7 @@ import jakarta.persistence.GenerationType;
 import lombok.Data;
 @Data
 @Entity
+
 public class Cadastro {
     @Id @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
