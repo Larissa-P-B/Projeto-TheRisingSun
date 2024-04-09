@@ -10,7 +10,7 @@ import static org.springframework.http.HttpStatus.NO_CONTENT;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
+
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -23,7 +23,7 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.server.ResponseStatusException;
 
-import br.com.fiap.therisingsun.model.Categoria;
+
 import br.com.fiap.therisingsun.model.Produto;
 
 import br.com.fiap.therisingsun.repository.ProdutoRepository;
@@ -43,7 +43,7 @@ public class ProdutoController {
     }
 
     @PostMapping
-    @ResponseStatus(HttpStatus.CREATED)
+    @ResponseStatus(CREATED)
     public Produto create(@RequestBody Produto prod) {
         log.info("Cadastrando categoria {}", prod);
         return repository.save(prod);
@@ -64,21 +64,21 @@ public class ProdutoController {
     @DeleteMapping("{id}")
     @ResponseStatus(NO_CONTENT)
     public void destroy(@PathVariable Long id) {
-        log.info("apagando categoria {}", id);
-        verificarSeCategoriaExiste(id);
+        log.info("apagando produto {}", id);
+        verificarSeProdutoExiste(id);
         repository.deleteById(id);
     }
 
     @PutMapping("{id}")
-    public Categoria update(@PathVariable Long id, @RequestBody Categoria categoria) {
-        log.info("atualizar categoria {} para {}", id, categoria);
+    public Produto update(@PathVariable Long id, @RequestBody Produto produto) {
+        log.info("atualizar produto {} para {}", id, produto);
 
-        verificarSeCategoriaExiste(id);
-        categoria.setId(id);
-        return repository.save(categoria);
+        verificarSeProdutoExiste(id);
+        produto.setId(id);
+        return repository.save(produto);
     }
 
-    private void verificarSeCategoriaExiste(Long id) {
+    private void verificarSeProdutoExiste(Long id) {
         repository
                 .findById(id)
                 .orElseThrow(() -> new ResponseStatusException(
