@@ -7,8 +7,7 @@ import static org.springframework.http.HttpStatus.NOT_FOUND;
 import static org.springframework.http.HttpStatus.NO_CONTENT;
 
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+
 import org.springframework.beans.factory.annotation.Autowired;
 
 import org.springframework.http.ResponseEntity;
@@ -32,7 +31,7 @@ import br.com.fiap.therisingsun.repository.ProdutoRepository;
 @RestController
 @RequestMapping("produto")
 public class ProdutoController {
-    Logger log = LoggerFactory.getLogger(getClass());
+   
 
     @Autowired // Injeção de Dependência - Inversão de Controle
     ProdutoRepository repository;
@@ -45,13 +44,13 @@ public class ProdutoController {
     @PostMapping
     @ResponseStatus(CREATED)
     public Produto create(@RequestBody Produto prod) {
-        log.info("Cadastrando categoria {}", prod);
+       
         return repository.save(prod);
     }
 
     @GetMapping("{id}")
     public ResponseEntity<Produto> show(@PathVariable Long id) {
-        log.info("buscando produto com id {}", id);
+        
 
         return repository
             .findById(id)
@@ -64,14 +63,14 @@ public class ProdutoController {
     @DeleteMapping("{id}")
     @ResponseStatus(NO_CONTENT)
     public void destroy(@PathVariable Long id) {
-        log.info("apagando produto {}", id);
+        
         verificarSeProdutoExiste(id);
         repository.deleteById(id);
     }
 
     @PutMapping("{id}")
     public Produto update(@PathVariable Long id, @RequestBody Produto produto) {
-        log.info("atualizar produto {} para {}", id, produto);
+        
 
         verificarSeProdutoExiste(id);
         produto.setId(id);

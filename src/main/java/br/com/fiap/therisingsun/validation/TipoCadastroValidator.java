@@ -1,6 +1,8 @@
 package br.com.fiap.therisingsun.validation;
+
 import jakarta.validation.ConstraintValidator;
 import jakarta.validation.ConstraintValidatorContext;
+
 
 
 
@@ -8,7 +10,9 @@ public class TipoCadastroValidator implements ConstraintValidator<TipoCadastro,S
     
     @Override
     public boolean isValid(String value, ConstraintValidatorContext context) {
-        return value.equals("ENTRADA") || value.equals("SAIDA");
+        if(value == null || value.isEmpty())return false;
+        if(value.matches(value)) return true;
+        return false;
     }
 
 }

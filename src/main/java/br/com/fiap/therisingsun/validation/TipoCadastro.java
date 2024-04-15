@@ -14,7 +14,7 @@ import jakarta.validation.Payload;
 @Constraint(validatedBy = TipoCadastroValidator.class)
 public @interface TipoCadastro {
 
-    String message() default "{cadastro.tipo}";
+    String message() default "{cadastro.tipo.invalido}";
 
     Class<?>[] groups() default {};
 
