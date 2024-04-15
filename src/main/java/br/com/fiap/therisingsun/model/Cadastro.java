@@ -2,6 +2,7 @@ package br.com.fiap.therisingsun.model;
 
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -14,6 +15,8 @@ import jakarta.validation.constraints.Size;
 
 import lombok.Data;
 import org.hibernate.validator.constraints.br.CPF;
+import org.springframework.data.annotation.CreatedDate;
+import org.springframework.format.annotation.DateTimeFormat;
 
 @Data
 @Entity
@@ -27,7 +30,7 @@ public class Cadastro {
     private String nome;
     
     @CPF
-    private int CPF;
+    private String CPF;
 
     @Email
     private String email;
@@ -36,7 +39,8 @@ public class Cadastro {
     @Size(min = 8,max = 16)
     private String senha;
 
-    private LocalDate data;
+    @CreatedDate
+    private LocalDateTime data;
 
     
     

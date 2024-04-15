@@ -9,6 +9,7 @@ import java.util.List;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -39,6 +40,17 @@ public class CadastroController {
     @ResponseStatus(CREATED)
     public Cadastro create(@RequestBody @Valid Cadastro cadastro){
         return repository.save(cadastro);
+    }
+
+    @GetMapping("{id}")
+    public ResponseEntity<Cadastro> show(@PathVariable Long id) {
+       
+
+        return repository
+            .findById(id)
+            .map(ResponseEntity::ok)
+            .orElse(ResponseEntity.notFound().build());
+
     }
 
     @PutMapping("{id}")
