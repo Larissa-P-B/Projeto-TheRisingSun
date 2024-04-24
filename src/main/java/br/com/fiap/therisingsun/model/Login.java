@@ -16,11 +16,11 @@ public class Login {
     @Id @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     
-    @Column(unique = true)
+  
     @Email
     private String email;
 
-    @Column(unique = true)
+   
     @NotEmpty
     @Size(min = 8,max = 16)
     private String senha;

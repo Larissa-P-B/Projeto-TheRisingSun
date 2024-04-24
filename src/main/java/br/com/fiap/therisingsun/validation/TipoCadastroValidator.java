@@ -10,7 +10,7 @@ public class TipoCadastroValidator implements ConstraintValidator<TipoCadastro,S
     
     @Override
     public boolean isValid(String value, ConstraintValidatorContext context) {
-        if(value == null || value.isEmpty())return false;
+        
         if(value.matches(value)) return true;
         return false;
     }

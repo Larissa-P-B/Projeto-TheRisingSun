@@ -1,5 +1,6 @@
 package br.com.fiap.therisingsun.model;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -16,5 +17,7 @@ public class Produto {
     private String imagem;
     private String descricao;
     private double preco;
+    @Column(name = "quantidade_disponivel", nullable = false)
+    private int quantidadeDisponivel;
     
 }

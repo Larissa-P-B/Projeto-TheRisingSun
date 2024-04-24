@@ -82,7 +82,7 @@ public class ProdutoController {
                 .findById(id)
                 .orElseThrow(() -> new ResponseStatusException(
                         NOT_FOUND,
-                        "Não existe categoria com o id informado"));
+                        "Não existe produto com o id informado"));
     }
 
 }
